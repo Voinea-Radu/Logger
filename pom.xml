@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>dev.lightdream</groupId>
+    <artifactId>Logger</artifactId>
+    <version>1.0</version>
+
+    <distributionManagement>
+        <repository>
+            <id>lightdream-api</id>
+            <url>https://repo.lightdream.dev/repository/LightDream-API/</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>jansi</id>
+            <url>https://mvnrepository.com/artifact/org.fusesource.jansi/jansi</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.fusesource.jansi</groupId>
+            <artifactId>jansi</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+    </dependencies>
+
+</project>
