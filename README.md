@@ -1,6 +1,6 @@
 # LightDream Logger
 
-![Build](https://github.com/L1ghtDream/LightDreamAPI/actions/workflows/build.yml/badge.svg)
+![Build](https://github.com/L1ghtDream/Logger/actions/workflows/build.yml/badge.svg)
 
 ```xml
 <repositories>
@@ -17,7 +17,7 @@
     <dependency>
         <groupId>dev.lightdream</groupId>
         <artifactId>Logger</artifactId>
-        <version>VERSION</version>
+        <version>LATEST</version>
     </dependency>
     <!-- Other dependencies -->
 </dependencies>
