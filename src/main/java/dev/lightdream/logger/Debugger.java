@@ -1,6 +1,7 @@
 package dev.lightdream.logger;
 
 
+@SuppressWarnings("unused")
 public class Debugger {
 
     public static boolean enabled = false;
