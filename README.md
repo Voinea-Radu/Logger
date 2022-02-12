@@ -1,4 +1,4 @@
-# LightDream Logger
+# LightDream Logger 
 
 ![Build](https://github.com/L1ghtDream/Logger/actions/workflows/build.yml/badge.svg)
 
