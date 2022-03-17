@@ -4,9 +4,6 @@ package dev.lightdream.logger;
 @SuppressWarnings("unused")
 public class Debugger {
 
-    public static boolean enabled = false;
-    private static LoggableMain main;
-
     public static void info(Object object) {
         if (object == null) {
             info("null");
@@ -16,19 +13,22 @@ public class Debugger {
     }
 
     public static void info(String message) {
-        if (main == null) {
+        if (Logger.main == null) {
             System.out.println("The debugger has not been initialized.");
             return;
         }
-        if (!main.debug()) {
+        if (!Logger.main.debug()) {
             return;
         }
-        main.log(message);
+        Logger.main.log(message);
     }
 
     public static void init(LoggableMain main) {
-        Debugger.main = main;
-        Debugger.enabled = true;
+        Logger.init(main);
+    }
+
+    public boolean isEnabled() {
+        return Logger.enabled;
     }
 
 }

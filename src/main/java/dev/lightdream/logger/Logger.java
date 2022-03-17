@@ -1,12 +1,11 @@
 package dev.lightdream.logger;
 
-import org.fusesource.jansi.Ansi;
 
 @SuppressWarnings("unused")
 public class Logger {
 
     public static boolean enabled = false;
-    private static dev.lightdream.logger.LoggableMain main;
+    public static LoggableMain main;
 
     @SuppressWarnings("unused")
     public static void info(Object object) {
@@ -19,9 +18,7 @@ public class Logger {
 
     public static void info(String message) {
         if (main == null) {
-            System.out.println(Ansi.ansi().fg(Ansi.Color.RED).boldOff() + "The logger has not been initialized." + Ansi.ansi()
-                    .fg(Ansi.Color.DEFAULT)
-                    .boldOff());
+            System.out.println(ConsoleColors.RED + "The logger has not been initialized." + ConsoleColors.RESET);
             return;
         }
         main.log(message);
@@ -40,7 +37,7 @@ public class Logger {
             info(message);
             return;
         }
-        info(Ansi.ansi().fg(Ansi.Color.RED).boldOff() + message + Ansi.ansi().fg(Ansi.Color.DEFAULT).boldOff());
+        info(ConsoleColors.RED + message + ConsoleColors.RESET);
     }
 
     public static void good(Object object) {
@@ -56,7 +53,8 @@ public class Logger {
             info(message);
             return;
         }
-        info(Ansi.ansi().fg(Ansi.Color.GREEN).boldOff() + message + Ansi.ansi().fg(Ansi.Color.DEFAULT).boldOff());
+
+        info(ConsoleColors.GREEN + message + ConsoleColors.RESET);
     }
 
     public static void init(LoggableMain main) {
@@ -64,16 +62,12 @@ public class Logger {
         Logger.enabled = true;
     }
 
-    public static void color(Ansi.Color color, Object object) {
+    public static void color(ConsoleColors color, Object object) {
         if (object == null) {
             error("null");
             return;
         }
         color(color, object.toString());
-    }
-
-    public static void color(Ansi.Color color, String message) {
-        info(Ansi.ansi().fg(color).boldOff() + message + Ansi.ansi().fg(Ansi.Color.DEFAULT).boldOff());
     }
 
     public static void setting(Object object) {
@@ -85,7 +79,11 @@ public class Logger {
     }
 
     public static void setting(String message) {
-        info(Ansi.ansi().fg(Ansi.Color.BLUE).boldOff() + message + Ansi.ansi().fg(Ansi.Color.DEFAULT).boldOff());
+        info(ConsoleColors.BLUE + message + ConsoleColors.RESET);
+    }
+
+    public boolean isEnabled() {
+        return enabled;
     }
 
 }
