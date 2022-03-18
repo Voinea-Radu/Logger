@@ -6,7 +6,7 @@
 
     <groupId>dev.lightdream</groupId>
     <artifactId>Logger</artifactId>
-    <version>2.2.3</version>
+    <version>2.2.4</version>
 
     <distributionManagement>
         <repository>
@@ -43,22 +43,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>jansi</id>
-            <url>https://mvnrepository.com/artifact/org.fusesource.jansi/jansi</url>
-        </repository>
-    </repositories>
-
-    <!--
-    <dependencies>
-        <dependency>
-            <groupId>org.fusesource.jansi</groupId>
-            <artifactId>jansi</artifactId>
-            <version>2.4.0</version>
-        </dependency>
-    </dependencies>
-    -->
 
 </project>
