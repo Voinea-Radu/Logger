@@ -27,7 +27,7 @@ public class Debugger {
         Logger.init(main);
     }
 
-    public boolean isEnabled() {
+    public static boolean isEnabled() {
         return Logger.main.debug();
     }
 
