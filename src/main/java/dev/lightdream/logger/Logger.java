@@ -13,48 +13,27 @@ public class Logger {
             info("null");
             return;
         }
-        info(object.toString());
-    }
-
-    public static void info(String message) {
         if (main == null) {
             System.out.println(ConsoleColors.RED + "The logger has not been initialized." + ConsoleColors.RESET);
             return;
         }
-        main.log(message);
+        main.log(object.toString());
+    }
+
+    public static void log(Object object) {
+        info(object);
     }
 
     public static void error(Object object) {
-        if (object == null) {
-            error("null");
-            return;
-        }
-        error(object.toString());
-    }
-
-    public static void error(String message) {
-        if (main == null) {
-            info(message);
-            return;
-        }
-        info(ConsoleColors.RED + message + ConsoleColors.RESET);
+        color(ConsoleColors.RED, object);
     }
 
     public static void good(Object object) {
-        if (object == null) {
-            good("null");
-            return;
-        }
-        good(object.toString());
+        color(ConsoleColors.GREEN, object);
     }
 
-    public static void good(String message) {
-        if (main == null) {
-            info(message);
-            return;
-        }
-
-        info(ConsoleColors.GREEN + message + ConsoleColors.RESET);
+    public static void warn(Object object) {
+        color(ConsoleColors.YELLOW, object);
     }
 
     public static void init(LoggableMain main) {
@@ -64,22 +43,19 @@ public class Logger {
 
     public static void color(ConsoleColors color, Object object) {
         if (object == null) {
-            error("null");
+            info("null");
             return;
         }
-        color(color, object.toString());
+
+        if (main == null) {
+            info(object);
+            return;
+        }
+
+        info(color + object.toString() + ConsoleColors.RESET);
     }
 
     public static void setting(Object object) {
-        if (object == null) {
-            setting("null");
-            return;
-        }
-        setting(object.toString());
+        color(ConsoleColors.BLUE, object);
     }
-
-    public static void setting(String message) {
-        info(ConsoleColors.BLUE + message + ConsoleColors.RESET);
-    }
-
 }

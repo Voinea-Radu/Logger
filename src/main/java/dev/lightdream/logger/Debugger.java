@@ -5,26 +5,23 @@ package dev.lightdream.logger;
 public class Debugger {
 
     public static void info(Object object) {
-        if (object == null) {
-            info("null");
+        if (!isEnabled()) {
             return;
         }
-        info(object.toString());
+        Logger.info(object);
     }
 
-    public static void info(String message) {
-        if (Logger.main == null) {
-            System.out.println("The debugger has not been initialized.");
-            return;
-        }
-        if (!Logger.main.debug()) {
-            return;
-        }
-        Logger.main.log(message);
+    public static void log(Object object) {
+        info(object);
     }
 
     public static void init(LoggableMain main) {
         Logger.init(main);
+    }
+
+
+    public static void color(ConsoleColors color, Object object) {
+        Logger.info(color + object.toString() + ConsoleColors.RESET);
     }
 
     public static boolean isEnabled() {
