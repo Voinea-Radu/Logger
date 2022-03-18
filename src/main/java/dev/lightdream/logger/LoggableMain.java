@@ -4,7 +4,7 @@ public interface LoggableMain {
 
     @SuppressWarnings("unused")
     static String getVersion() {
-        return "Logger 2.2.5";
+        return "Logger 2.2.6\n";
     }
 
     boolean debug();
