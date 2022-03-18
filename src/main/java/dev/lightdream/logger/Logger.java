@@ -82,8 +82,4 @@ public class Logger {
         info(ConsoleColors.BLUE + message + ConsoleColors.RESET);
     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
-
 }
