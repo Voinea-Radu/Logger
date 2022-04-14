@@ -39,7 +39,6 @@ public class Logger {
     public static void init(LoggableMain main) {
         Logger.main = main;
         Logger.enabled = true;
-        log("Debugger is " + (main.debug() ? "enabled" : "disabled") + "!");
     }
 
     public static void color(ConsoleColors color, Object object) {
