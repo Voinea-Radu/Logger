@@ -25,7 +25,11 @@ public class Debugger {
     }
 
     public static boolean isEnabled() {
-        return Logger.main.debug();
+        try {
+            return Logger.main.debug();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }
