@@ -23,7 +23,7 @@ A logger lib that allows the separation of debugging logs and production logs.
     <dependency>
         <groupId>dev.lightdream</groupId>
         <artifactId>Logger</artifactId>
-        <version>VERSION</version>
+        <version>${{ env.VERSION }}</version>
     </dependency>
     <!-- Other dependencies -->
 </dependencies>
@@ -38,7 +38,7 @@ repositories {
 }
 
 dependencies {
-    implementation "dev.lightdream:Logger:VERSION"
+    implementation "dev.lightdream:Logger:${{ env.VERSION }}"
     
     // Other dependencies
 }
