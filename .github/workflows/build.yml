@@ -32,7 +32,7 @@ jobs:
           committer_email: "contact@voienaradu.com"
           commit_message: "Updated README.md versions"
           files: |
-            README.md
+            README-template.md=README.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VERSION: ${{ env.VERSION }}
