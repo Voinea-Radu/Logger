@@ -14,6 +14,8 @@ jobs:
           distribution: 'adopt'
       - name: Set version env variable
         run: echo "VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+      - name: Set artifact env variable
+        run: echo "ARTIFACT=$(mvn help:evaluate -Dexpression=project.artifactId -q -DforceStdout)" >> $GITHUB_ENV
       - name: Set package env variable
         run: echo "PACKAGE=$(ls src/main/java/*/*)" >> $GITHUB_ENV
       - name: Build with Maven
@@ -39,3 +41,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VERSION: ${{ env.VERSION }}
           PACKAGE: ${{ env.PACKAGE }}
+          ARTIFACT: ${{ env.ARTIFACT }}
