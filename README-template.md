@@ -1,7 +1,7 @@
 # LightDream Logger
 
 ![Build](https://github.com/L1ghtDream/Logger/actions/workflows/build.yml/badge.svg)
-![Build](https://img.shields.io/badge/Version-${{ env.VERSION }}-red.svg)
+![Version](https://img.shields.io/badge/Version-${{ env.VERSION }}-red.svg)
 
 A logger lib that allows the separation of debugging logs and production logs.
 
