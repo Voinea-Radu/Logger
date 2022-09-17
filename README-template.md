@@ -8,6 +8,7 @@ A logger lib that allows the separation of debugging logs and production logs.
 ## Use
 
 ### Maven
+
 ```xml
 <repositories>
     <repository>
@@ -19,6 +20,7 @@ A logger lib that allows the separation of debugging logs and production logs.
 ```
 
 ```xml
+
 <dependencies>
     <dependency>
         <groupId>dev.lightdream</groupId>
@@ -30,6 +32,7 @@ A logger lib that allows the separation of debugging logs and production logs.
 ```
 
 ### Gradle
+
 ```gradle
 repositories {
     maven { url "https://repo.lightdream.dev/repository/LightDream-API/" }
@@ -50,24 +53,24 @@ dependencies {
 
 public class Example implements LoggableMain {
 
-  public Example(){
-    enable();
-  }
+    public Example() {
+        enable();
+    }
 
-  public void enable(){
-    Logger.init(this);
-    Debugger.init(this);
-  }
+    public void enable() {
+        Logger.init(this);
+        Debugger.init(this);
+    }
 
-  @Override
-  public boolean debug() {
-    return true;
-  }
+    @Override
+    public boolean debug() {
+        return true;
+    }
 
-  @Override
-  public void log(String s) {
-    System.out.println(s);
-  }
+    @Override
+    public void log(String s) {
+        System.out.println(s);
+    }
 }
 
 ```
