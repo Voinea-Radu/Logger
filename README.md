@@ -10,7 +10,6 @@ A logger lib that allows the separation of debugging logs and production logs.
 ### Maven
 
 ```xml
-
 <repositories>
     <repository>
         <id>lightdream-repo</id>
