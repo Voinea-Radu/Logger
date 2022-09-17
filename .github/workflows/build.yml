@@ -22,7 +22,7 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "${{ env.VERSION }}"
           prerelease: false
-          title: "Latest Release"
+          title: "${{ env.VERSION }}"
           files: |
             target/*.jar
       - name: "README.md Render"
