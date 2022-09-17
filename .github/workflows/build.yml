@@ -23,3 +23,16 @@ jobs:
           title: "Latest Release"
           files: |
             target/*.jar
+      - name: Set env
+        run: echo "VERSION=test" >> $GITHUB_ENV
+      - name: Read env
+        run: echo echo ${{ env.VERSION }}
+      - name: "README.md Render"
+        uses: varunsridharan/action-dynamic-readme@main
+        with:
+          GLOBAL_TEMPLATE_REPOSITORY: {repository-owner}/{repository-name}
+          files: |
+            README.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ env.VERSION }}

@@ -1,7 +1,13 @@
-# LightDream Logger 
+# LightDream Logger
 
 ![Build](https://github.com/L1ghtDream/Logger/actions/workflows/build.yml/badge.svg)
+![Build](https://img.shields.io/badge/Version-${{ env.VERSION }}-red.svg)
 
+A logger lib that allows the separation of debugging logs and production logs.
+
+## Use
+
+### Maven
 ```xml
 <repositories>
     <repository>
@@ -17,10 +23,25 @@
     <dependency>
         <groupId>dev.lightdream</groupId>
         <artifactId>Logger</artifactId>
-        <version>LATEST</version>
+        <version>VERSION</version>
     </dependency>
     <!-- Other dependencies -->
 </dependencies>
+```
+
+### Gradle
+```gradle
+repositories {
+    maven { url "https://repo.lightdream.dev/repository/LightDream-API/" }
+    
+    // Other repositories
+}
+
+dependencies {
+    implementation "dev.lightdream:Logger:VERSION"
+    
+    // Other dependencies
+}
 ```
 
 ## Example
