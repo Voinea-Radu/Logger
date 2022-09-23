@@ -1,7 +1,7 @@
 # Logger
 
 ![Build](../../actions/workflows/build.yml/badge.svg)
-![Version](https://img.shields.io/badge/Version-2.4.5-red.svg)
+![Version](https://img.shields.io/badge/Version-2.4.7-red.svg)
 
 A logger lib that allows the separation of debugging logs and production logs.
 
@@ -26,7 +26,7 @@ A logger lib that allows the separation of debugging logs and production logs.
     <dependency>
         <groupId>dev.lightdream</groupId>
         <artifactId>Logger</artifactId>
-        <version>2.4.5</version>
+        <version>2.4.7</version>
     </dependency>
     <!-- Other dependencies -->
 </dependencies>
@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    implementation "dev.lightdream:Logger:2.4.5"
+    implementation "dev.lightdream:Logger:2.4.7"
 
     // Other dependencies
 }
