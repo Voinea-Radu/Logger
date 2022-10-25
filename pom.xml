@@ -6,7 +6,7 @@
 
     <groupId>dev.lightdream</groupId>
     <artifactId>Logger</artifactId>
-    <version>2.4.8</version>
+    <version>2.4.9</version>
 
     <distributionManagement>
         <repository>
@@ -43,6 +43,10 @@
                                 <relocation>
                                     <pattern>org.projectlombok</pattern>
                                     <shadedPattern>libs.org.projectlombok</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>lombok</pattern>
+                                    <shadedPattern>libs.lombok</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>
