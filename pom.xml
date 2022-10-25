@@ -6,7 +6,7 @@
 
     <groupId>dev.lightdream</groupId>
     <artifactId>Logger</artifactId>
-    <version>2.4.7</version>
+    <version>2.4.8</version>
 
     <distributionManagement>
         <repository>
@@ -38,6 +38,14 @@
                         <goals>
                             <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <relocations>
+                                <relocation>
+                                    <pattern>org.projectlombok</pattern>
+                                    <shadedPattern>libs.org.projectlombok</shadedPattern>
+                                </relocation>
+                            </relocations>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
