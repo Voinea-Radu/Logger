@@ -10,8 +10,8 @@
 
     <distributionManagement>
         <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/releases/</url>
+            <id>lightdream</id>
+            <url>https://repo.lightdream.dev/</url>
         </repository>
     </distributionManagement>
 
@@ -19,44 +19,6 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
-
-    <!--
-    <build>
-        <resources>
-            <resource>
-                <directory>${project.basedir}/src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <relocations>
-                                <relocation>
-                                    <pattern>org.projectlombok</pattern>
-                                    <shadedPattern>libs.org.projectlombok</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>lombok</pattern>
-                                    <shadedPattern>libs.lombok</shadedPattern>
-                                </relocation>
-                            </relocations>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-    -->
 
     <dependencies>
         <!-- Lombok -->

@@ -4,6 +4,7 @@ import dev.lightdream.logger.Debugger;
 import dev.lightdream.logger.LoggableMain;
 import dev.lightdream.logger.Logger;
 
+@SuppressWarnings("unused")
 public class Example implements LoggableMain {
 
     public Example() {
