@@ -7,11 +7,11 @@ import java.io.FileWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Utils {
+public class FileUtils {
 
     @SneakyThrows
-    public static void writeToLog(String log, LoggableMain main) {
-        File dir = new File(System.getProperty("user.dir") + main.logFilesFolder());
+    public static void writeToLFile(String log, String folder) {
+        File dir = new File(System.getProperty("user.dir") + folder);
         // noinspection ResultOfMethodCallIgnored
         dir.mkdirs();
 

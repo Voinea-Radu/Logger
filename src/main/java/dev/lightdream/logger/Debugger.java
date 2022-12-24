@@ -4,55 +4,74 @@ package dev.lightdream.logger;
 @SuppressWarnings("unused")
 public class Debugger {
 
-    private static boolean lowLevelEnabled = false;
-
-    public static void enableLowLevelDebugging() {
-        lowLevelEnabled = true;
+    public static boolean checks(Object object) {
+        if (object == null) {
+            info("null");
+            return false;
+        }
+        if (Logger.main == null) {
+            System.out.println(ConsoleColors.RED + "The logger has not been initialized." + ConsoleColors.RESET);
+            return false;
+        }
+        return true;
     }
 
-    public static void disableLowLevelDebugging() {
-        lowLevelEnabled = false;
-    }
-
-    public static boolean isLowLevelDebuggingEnabled() {
-        return lowLevelEnabled;
-    }
-
+    /**
+     * Print a white message
+     * @param object The object to print
+     */
     public static void info(Object object) {
-        if (!isEnabled()) {
-            return;
-        }
-        Logger.info(object);
+        if (!checks(object)) return;
+        Logger.main.log(object.toString(), true);
     }
 
+    /**
+     * Print a colored message
+     * @param color The color of the message
+     * @param object The object to print
+     */
+    public static void color(ConsoleColors color, Object object) {
+        if (!checks(object)) return;
+        info(color + object.toString() + ConsoleColors.RESET);
+    }
+
+    /**
+     * {@link Logger#info} alias
+     * @param object The object to print
+     */
     public static void log(Object object) {
-        log(object, false);
-    }
-
-    public static void log(Object object, boolean lowLevel) {
-        if (lowLevel) {
-            if (lowLevelEnabled) {
-                info(object);
-            }
-            return;
-        }
         info(object);
     }
 
-    public static void init(LoggableMain main) {
-        Logger.init(main);
+    /**
+     * Print a red message
+     * @param object The object to print
+     */
+    public static void error(Object object) {
+        color(ConsoleColors.RED, object);
     }
 
-    public static void color(ConsoleColors color, Object object) {
-        Logger.info(color + object.toString() + ConsoleColors.RESET);
+    /**
+     * Print a green message
+     * @param object The object to print
+     */
+    public static void good(Object object) {
+        color(ConsoleColors.GREEN, object);
     }
 
-    public static boolean isEnabled() {
-        try {
-            return Logger.main.debug();
-        } catch (Exception e) {
-            return false;
-        }
+    /**
+     * Print a yellow message
+     * @param object The object to print
+     */
+    public static void warn(Object object) {
+        color(ConsoleColors.YELLOW, object);
     }
 
+    /**
+     * Print a blue message
+     * @param object The object to print
+     */
+    public static void setting(Object object) {
+        color(ConsoleColors.BLUE, object);
+    }
 }

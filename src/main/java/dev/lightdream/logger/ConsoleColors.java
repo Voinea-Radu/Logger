@@ -70,4 +70,11 @@ public enum ConsoleColors {
     public String toString() {
         return code;
     }
+
+    public static String clearString(String log){
+        for (ConsoleColors value : ConsoleColors.values()) {
+            log = log.replace(value.toString(), "");
+        }
+        return log;
+    }
 }

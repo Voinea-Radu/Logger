@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dev.lightdream</groupId>
-    <artifactId>Logger</artifactId>
-    <version>2.5.1</version>
+    <artifactId>logger</artifactId>
+    <version>3.0.0</version>
 
     <distributionManagement>
         <repository>
             <id>lightdream</id>
-            <url>https://repo.lightdream.dev/</url>
+            <url>https://repo.lightdream.dev</url>
         </repository>
     </distributionManagement>
 

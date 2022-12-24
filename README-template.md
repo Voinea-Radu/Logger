@@ -3,24 +3,19 @@
 ![Build](../../actions/workflows/build.yml/badge.svg)
 ![Version](https://img.shields.io/badge/Version-${{ env.VERSION }}-red.svg)
 
-A logger lib that allows the separation of debugging logs and production logs.
-
 ## Use
 
-### Maven
+<details>
+  <summary>Maven</summary>
 
 ```xml
-
 <repositories>
     <repository>
-        <id>lightdream-repo</id>
+        <id>lightdream</id>
         <url>https://repo.lightdream.dev/</url>
     </repository>
     <!-- Other repositories -->
 </repositories>
-```
-
-```xml
 
 <dependencies>
     <dependency>
@@ -31,8 +26,10 @@ A logger lib that allows the separation of debugging logs and production logs.
     <!-- Other dependencies -->
 </dependencies>
 ```
+</details>
 
-### Gradle
+<details>
+  <summary>Gradle</summary>
 
 ```groovy
 repositories {
@@ -47,7 +44,4 @@ dependencies {
     // Other dependencies
 }
 ```
-
-## Example
-
-Can be found in the [source code](/src/main/java/dev/lightdream/${{ env.PACKAGE }}/example)
+</details>
