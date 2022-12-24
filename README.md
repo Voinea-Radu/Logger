@@ -20,7 +20,7 @@
 <dependencies>
     <dependency>
         <groupId>dev.lightdream</groupId>
-        <artifactId>logger</artifactId>
+        <artifactId>Logger</artifactId>
         <version>3.0.0</version>
     </dependency>
     <!-- Other dependencies -->
@@ -39,7 +39,7 @@ repositories {
 }
 
 dependencies {
-    implementation "dev.lightdream:logger:3.0.0"
+    implementation "dev.lightdream:Logger:3.0.0"
 
     // Other dependencies
 }
