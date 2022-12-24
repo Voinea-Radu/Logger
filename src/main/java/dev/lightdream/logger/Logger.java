@@ -6,6 +6,7 @@ public class Logger {
 
     public static LoggableMain main;
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public static boolean checks(Object object) {
         if (object == null) {
             info("null");

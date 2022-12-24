@@ -4,6 +4,7 @@ package dev.lightdream.logger;
 @SuppressWarnings("unused")
 public class Debugger {
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public static boolean checks(Object object) {
         if (object == null) {
             info("null");
