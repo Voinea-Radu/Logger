@@ -1,6 +1,6 @@
 # Logger
 
-[![Build](../../actions/workflows/build.yml/badge.svg)](actions)
+[![Build](../../actions/workflows/build.yml/badge.svg)](../../actions)
 [![Version](https://img.shields.io/badge/Version-3.0.0-red.svg)](https://gitlab.com/lightdream-dev/api/-/packages)
 
 ## Use
