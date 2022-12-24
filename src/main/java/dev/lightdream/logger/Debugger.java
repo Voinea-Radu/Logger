@@ -19,6 +19,7 @@ public class Debugger {
 
     /**
      * Print a white message
+     *
      * @param object The object to print
      */
     public static void info(Object object) {
@@ -28,7 +29,8 @@ public class Debugger {
 
     /**
      * Print a colored message
-     * @param color The color of the message
+     *
+     * @param color  The color of the message
      * @param object The object to print
      */
     public static void color(ConsoleColors color, Object object) {
@@ -38,6 +40,7 @@ public class Debugger {
 
     /**
      * {@link Logger#info} alias
+     *
      * @param object The object to print
      */
     public static void log(Object object) {
@@ -46,6 +49,7 @@ public class Debugger {
 
     /**
      * Print a red message
+     *
      * @param object The object to print
      */
     public static void error(Object object) {
@@ -54,6 +58,7 @@ public class Debugger {
 
     /**
      * Print a green message
+     *
      * @param object The object to print
      */
     public static void good(Object object) {
@@ -62,6 +67,7 @@ public class Debugger {
 
     /**
      * Print a yellow message
+     *
      * @param object The object to print
      */
     public static void warn(Object object) {
@@ -70,6 +76,7 @@ public class Debugger {
 
     /**
      * Print a blue message
+     *
      * @param object The object to print
      */
     public static void setting(Object object) {

@@ -66,15 +66,15 @@ public enum ConsoleColors {
         this.code = code;
     }
 
-    @Override
-    public String toString() {
-        return code;
-    }
-
-    public static String clearString(String log){
+    public static String clearString(String log) {
         for (ConsoleColors value : ConsoleColors.values()) {
             log = log.replace(value.toString(), "");
         }
         return log;
+    }
+
+    @Override
+    public String toString() {
+        return code;
     }
 }

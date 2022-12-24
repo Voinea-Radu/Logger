@@ -72,12 +72,12 @@ public interface LoggableMain {
             FileUtils.writeToLFile(ConsoleColors.clearString(log), debugFilesFolder());
         }
 
-        if(!debug) {
+        if (!debug) {
             logToConsole(log);
             return;
         }
 
-        if(debugToConsole()) {
+        if (debugToConsole()) {
             logToConsole(log);
         }
     }
