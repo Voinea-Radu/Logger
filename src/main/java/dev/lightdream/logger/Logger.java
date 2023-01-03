@@ -14,6 +14,7 @@ public class Logger {
         }
         if (main == null) {
             System.out.println(ConsoleColors.RED + "The logger has not been initialized." + ConsoleColors.RESET);
+            System.out.println("Message to be printed: " + object);
             return false;
         }
         return true;
