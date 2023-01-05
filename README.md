@@ -23,7 +23,7 @@ If you want to use an older version that is not avanible in https://repo.lightdr
 ```xml
 <dependenies>
     <dependency>
-        <groupId>com.pokeninjas</groupId>
+        <groupId>dev.lightdream</groupId>
         <artifactId>logger</artifactId>
         <version>3.0.3</version>
     </dependency>
@@ -71,7 +71,7 @@ repositories {
 
 ```groovy
 dependencies {
-    implementation "com.pokeninjas:logger:3.0.3"
+    implementation "dev.lightdream:logger:3.0.3"
 }
 ```
   </details>
@@ -106,7 +106,7 @@ repositories {
 
 ```groovy
 dependencies {
-    implementation("com.pokeninjas:logger:3.0.3")
+    implementation("dev.lightdream:logger:3.0.3")
 }
 ```
   </details>
