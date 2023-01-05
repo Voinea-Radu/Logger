@@ -3,7 +3,7 @@ plugins {
     id("maven-publish")
 }
 
-group = "com.pokeninjas"
+group = "dev.lightdream"
 version = "3.0.3"
 
 repositories {
