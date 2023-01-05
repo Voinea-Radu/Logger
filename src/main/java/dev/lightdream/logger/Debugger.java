@@ -29,6 +29,16 @@ public class Debugger {
     }
 
     /**
+     * @return Whether the debugger is enabled
+     */
+    public static boolean isEnabled() {
+        if (Logger.main == null) {
+            return false;
+        }
+        return Logger.main.debugToConsole();
+    }
+
+    /**
      * Print a colored message
      *
      * @param color  The color of the message
