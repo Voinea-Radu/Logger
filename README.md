@@ -1,7 +1,7 @@
 # Logger
 
 [![Build](../../actions/workflows/build.yml/badge.svg)](../../actions)
-[![Version](https://img.shields.io/badge/Version-3.0.1-red.svg)](https://gitlab.com/lightdream-dev/api/-/packages)
+[![Version](https://img.shields.io/badge/Version-3.0.2-red.svg)](https://gitlab.com/lightdream-dev/api/-/packages)
 
 ## Use
 
@@ -21,7 +21,7 @@
     <dependency>
         <groupId>dev.lightdream</groupId>
         <artifactId>Logger</artifactId>
-        <version>3.0.1</version>
+        <version>3.0.2</version>
     </dependency>
     <!-- Other dependencies -->
 </dependencies>
@@ -39,7 +39,7 @@ repositories {
 }
 
 dependencies {
-    implementation "dev.lightdream:Logger:3.0.1"
+    implementation "dev.lightdream:Logger:3.0.2"
 
     // Other dependencies
 }
