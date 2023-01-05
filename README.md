@@ -1,4 +1,6 @@
-![Build](../../actions/workflows/build.yml/badge.svg)
+# Logger
+
+![Build](https://github.com/L1ghtDream/Logger/actions/workflows/build.yml/badge.svg)
 ![Version](https://img.shields.io/badge/Version-3.0.3-red.svg)
 
 ## Use
