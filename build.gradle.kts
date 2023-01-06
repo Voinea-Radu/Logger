@@ -84,11 +84,21 @@ publishing {
 }
 
 tasks.register("publishGitLab") {
-    dependsOn("publishMavenPublicationToGitlabRepository")
+    try{
+        dependsOn("publishMavenPublicationToGitlabRepository")
+    } catch (e: Exception) {
+        println("GitLab publish failed")
+    }
+    // dependsOn("publishMavenPublicationToGitlabRepository")
     description = "Publishes to GitLab"
 }
 
 tasks.register("publishGitHub") {
-    dependsOn("publishMavenPublicationToGithubRepository")
+    try{
+        dependsOn("publishMavenPublicationToGithubRepository")
+    } catch (e: Exception) {
+        println("GitHub publish failed")
+    }
+    // dependsOn("publishMavenPublicationToGithubRepository")
     description = "Publishes to GitHub"
 }
