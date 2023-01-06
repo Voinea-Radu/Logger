@@ -41,7 +41,8 @@ jobs:
             github.auth.password = ${{ secrets.GITHUB_TOKEN }}
           " > ~/.gradle/gradle.properties
           
-          gradle publish
+          { gradle publishGitHub  } || { echo "Failed to publish to GitHub" }
+          { gradle publishGitLab  } || { echo "Failed to publish to GitLab" }
           
           echo "HERE"
           
