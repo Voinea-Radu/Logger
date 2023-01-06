@@ -43,6 +43,10 @@ jobs:
           
           gradle publish
           
+          echo "HERE"
+          
+          exit 0
+          
           # export github_packages=$(curl \
           #   -H "Accept: application/vnd.github+json" \
           #   -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"\

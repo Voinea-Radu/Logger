@@ -8,7 +8,7 @@ version = "3.0.3"
 
 repositories {
     mavenCentral()
-    maven ("https://repo.lightdream.dev/")
+    maven("https://repo.lightdream.dev/")
 }
 
 configurations.all {
@@ -52,15 +52,8 @@ publishing {
         val gitlabHeaderValue = project.findProperty("gitlab.auth.header.value") ?: ""
 
         val githubURL = project.findProperty("github.url") ?: ""
-        val githubUsername= project.findProperty("github.auth.username") ?: ""
+        val githubUsername = project.findProperty("github.auth.username") ?: ""
         val githubPassword = project.findProperty("github.auth.password") ?: ""
-
-        println(gitlabURL)
-        println(gitlabHeaderName)
-        println(gitlabHeaderValue)
-        println(githubURL)
-        println(githubUsername)
-        println(githubPassword)
 
         maven(url = gitlabURL as String) {
             name = "gitlab"
@@ -84,21 +77,11 @@ publishing {
 }
 
 tasks.register("publishGitLab") {
-    try{
-        dependsOn("publishMavenPublicationToGitlabRepository")
-    } catch (e: Exception) {
-        println("GitLab publish failed")
-    }
-    // dependsOn("publishMavenPublicationToGitlabRepository")
+    dependsOn("publishMavenPublicationToGitlabRepository")
     description = "Publishes to GitLab"
 }
 
 tasks.register("publishGitHub") {
-    try{
-        dependsOn("publishMavenPublicationToGithubRepository")
-    } catch (e: Exception) {
-        println("GitHub publish failed")
-    }
-    // dependsOn("publishMavenPublicationToGithubRepository")
+    dependsOn("publishMavenPublicationToGithubRepository")
     description = "Publishes to GitHub"
 }
