@@ -33,7 +33,7 @@ public class Debugger {
      */
     public static boolean isEnabled() {
         if (Logger.main == null) {
-            return false;
+            return true;
         }
         return Logger.main.debugToConsole();
     }
