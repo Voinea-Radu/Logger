@@ -5,17 +5,17 @@
 
 ## Use
 
-If you want to use an older version that is not avanible in https://repo.lightdream.dev you can try using https://archive-repo.lightdream.dev
+If you want to use an older version that is not avanible in https://repo.lightdream.dev/repository/maven-releases/ you can try using https://archive-repo.lightdream.dev/
 
 <details>
   <summary>Maven</summary><blockquote>
-  <details><summary>repo.lightdream.dev</summary>
+  <details><summary>repo.lightdream.dev/repository/maven-releases/</summary>
 
 ```xml
 <repositories>
     <repository>
         <id>lightdream-repo</id>
-        <url>https://repo.lightdream.dev/</url>
+        <url>https://repo.lightdream.dev/repository/maven-releases//</url>
     </repository>
 </repositories>
 ```
@@ -61,11 +61,11 @@ If you want to use an older version that is not avanible in https://repo.lightdr
 
   <details><summary>Groovy</summary><blockquote>
 
-  <details><summary>repo.lightdream.dev</summary>
+  <details><summary>repo.lightdream.dev/repository/maven-releases/</summary>
 
 ```groovy
 repositories {
-    maven("https://repo.lightdream.dev/")
+    maven("https://repo.lightdream.dev/repository/maven-releases//")
 }
 ```
 
@@ -96,11 +96,11 @@ dependencies {
     <summary>Kotlin</summary><blockquote>
 
   <details>
-<summary>repo.lightdream.dev</summary>
+<summary>repo.lightdream.dev/repository/maven-releases/</summary>
 
 ```groovy
 repositories {
-    maven { url "https://repo.lightdream.dev/" }
+    maven { url "https://repo.lightdream.dev/repository/maven-releases//" }
 }
 ```
 
