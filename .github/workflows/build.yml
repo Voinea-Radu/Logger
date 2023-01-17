@@ -41,7 +41,7 @@ jobs:
             github.auth.password = ${{ secrets.GITHUB_TOKEN }}
         
             self.url = https://repo.lightdream.dev/repository/maven-releases/
-            self.auth.username = lightdream
+            self.auth.username = admin
             self.auth.password = ${{ secrets.SELF_PASSWORD }}
           " > ~/.gradle/gradle.properties
           
@@ -56,7 +56,7 @@ jobs:
           prerelease: false
           title: "${{ env.VERSION }}"
           files: |
-            target/*.jar
+            build/libs/*.jar
 
       - name: "README.md Render"
         uses: varunsridharan/action-dynamic-readme@main
