@@ -1,7 +1,7 @@
 # Logger
 
 ![Build](https://github.com/L1ghtDream/Logger/actions/workflows/build.yml/badge.svg)
-![Version](https://img.shields.io/badge/Version-3.1.0-red.svg)
+![Version](https://img.shields.io/badge/Version-3.2.0-red.svg)
 
 ## Use
 
@@ -25,7 +25,7 @@ If you want to use an older version that is not avanible in https://repo.lightdr
     <dependency>
         <groupId>dev.lightdream</groupId>
         <artifactId>logger</artifactId>
-        <version>3.1.0</version>
+        <version>3.2.0</version>
     </dependency>
 </dependenies>
 ```
@@ -48,7 +48,7 @@ If you want to use an older version that is not avanible in https://repo.lightdr
     <dependency>
         <groupId>com.github.L1ghtDream</groupId>
         <artifactId>logger</artifactId>
-        <version>3.1.0</version>
+        <version>3.2.0</version>
     </dependency>
 </dependencies>
 ```
@@ -71,7 +71,7 @@ repositories {
 
 ```groovy
 dependencies {
-    implementation "dev.lightdream:logger:3.1.0"
+    implementation "dev.lightdream:logger:3.2.0"
 }
 ```
   </details>
@@ -86,7 +86,7 @@ repositories {
 
 ```groovy
 dependencies {
-    implementation "com.github.L1ghtDream:logger:3.1.0"
+    implementation "com.github.L1ghtDream:logger:3.2.0"
 }
 ```
   </details>
@@ -98,15 +98,15 @@ dependencies {
   <details>
 <summary>repo.lightdream.dev</summary>
 
-```groovy
+```kotlin
 repositories {
-    maven { url "https://repo.lightdream.dev/" }
+    maven("https://repo.lightdream.dev/")
 }
 ```
 
-```groovy
+```kotlin
 dependencies {
-    implementation("dev.lightdream:logger:3.1.0")
+    implementation("dev.lightdream:logger:3.2.0")
 }
 ```
   </details>
@@ -121,7 +121,7 @@ repositories {
 
 ```kotlin
 dependencies {
-    implementation("com.github.L1ghtDream:logger:3.1.0")
+    implementation("com.github.L1ghtDream:logger:3.2.0")
 }
 ```
 
