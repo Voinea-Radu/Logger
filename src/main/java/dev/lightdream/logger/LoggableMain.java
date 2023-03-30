@@ -30,7 +30,7 @@ public interface LoggableMain {
      * @return true if you want to append the time to every entry
      */
     default boolean logTime() {
-        return true;
+        return false;
     }
 
     /**
@@ -39,7 +39,7 @@ public interface LoggableMain {
      * @return true if you want to log to file
      */
     default boolean logToFile() {
-        return true;
+        return false;
     }
 
     /**
@@ -48,7 +48,7 @@ public interface LoggableMain {
      * @return true if you want to log to file
      */
     default boolean debugToFile() {
-        return true;
+        return false;
     }
 
     /**
