@@ -11,33 +11,19 @@ repositories {
     maven("https://repo.lightdream.dev/")
 }
 
-configurations.all {
-    resolutionStrategy.cacheDynamicVersionsFor(10, "seconds")
-}
-
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 dependencies {
-    // Lombok
-    compileOnly("org.projectlombok:lombok:1.18.26")
-    annotationProcessor("org.projectlombok:lombok:1.18.26")
-
-}
-
-configurations.all {
-    resolutionStrategy.cacheDynamicVersionsFor(10, "seconds")
+    compileOnly(libs.lombok)
+    annotationProcessor(libs.lombok)
 }
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
-}
-
-tasks.withType<Jar> {
-    archiveFileName.set("${rootProject.name}.jar")
 }
 
 publishing {
