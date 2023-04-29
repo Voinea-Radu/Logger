@@ -1,25 +1,28 @@
-
 # Logger
 
 ![Build](../../actions/workflows/build.yml/badge.svg)
-![Version](https://img.shields.io/badge/Version-3.3.1-red.svg)
+![Version](https://img.shields.io/badge/Version-3.3.2-red.svg)
 
 # Table Of Contents
+
 1. [Description](#description)
 2. [How to add to your project](#how-to-add-to-your-project)
 3. [How to use](#how-to-use)
 
 ## Description
+
 A simple logger library used by many others proprietary libs and projects. This library allows you to enable and disable
 logging or debugging to console and files as well as include or not timestamps.
 
 ## How to add to your project
 
-
-The artifact can be found at the repository https://repo.lightdream.dev or https://jitpack.io (under com.github.L1ghtDream instead of dev.lightdream)
+The artifact can be found at the repository https://repo.lightdream.dev or https://jitpack.io (under
+com.github.L1ghtDream instead of dev.lightdream)
 
 ### Maven
+
 ```xml
+
 <repositories>
     <repository>
         <id>lightdream-repo</id>
@@ -31,22 +34,25 @@ The artifact can be found at the repository https://repo.lightdream.dev or https
     </repository>
 </repositories>
 ```
+
 ```xml
+
 <dependencies>
     <dependency>
         <groupId>dev.lightdream</groupId>
         <artifactId>logger</artifactId>
-        <version>3.3.1</version>
+        <version>3.3.2</version>
     </dependency>
     <dependency>
         <groupId>com.github.L1ghtDream</groupId>
         <artifactId>logger</artifactId>
-        <version>3.3.1</version>
+        <version>3.3.2</version>
     </dependency>
 </dependencies>
 ```
 
 ### Gradle - Groovy DSL
+
 ```groovy
 repositories {
     maven { url "https://repo.lightdream.dev/" }
@@ -54,12 +60,13 @@ repositories {
 }
 
 dependencies {
-    implementation "dev.lightdream:logger:3.3.1"
-    implementation "com.github.L1ghtDream:logger:3.3.1"
+    implementation "dev.lightdream:logger:3.3.2"
+    implementation "com.github.L1ghtDream:logger:3.3.2"
 }
 ```
 
 ### Gradle - Kotlin DSL
+
 ```kotlin
 repositories {
     maven("https://repo.lightdream.dev/")
@@ -67,13 +74,13 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.lightdream:logger:3.3.1")
-    implementation("com.github.L1ghtDream:logger:3.3.1")
+    implementation("dev.lightdream:logger:3.3.2")
+    implementation("com.github.L1ghtDream:logger:3.3.2")
 }
 ```
 
-If you want to use an older version that is not available in https://repo.lightdream.dev you can try using https://archive-repo.lightdream.dev
-
+If you want to use an older version that is not available in https://repo.lightdream.dev you can try
+using https://archive-repo.lightdream.dev
 
 ## How to use
 
