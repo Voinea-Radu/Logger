@@ -2,7 +2,7 @@
 # Logger
 
 ![Build](../../actions/workflows/build.yml/badge.svg)
-![Version](https://img.shields.io/badge/Version-3.3.0-red.svg)
+![Version](https://img.shields.io/badge/Version-3.3.1-red.svg)
 
 # Table Of Contents
 1. [Description](#description)
@@ -36,12 +36,12 @@ The artifact can be found at the repository https://repo.lightdream.dev or https
     <dependency>
         <groupId>dev.lightdream</groupId>
         <artifactId>logger</artifactId>
-        <version>3.3.0</version>
+        <version>3.3.1</version>
     </dependency>
     <dependency>
         <groupId>com.github.L1ghtDream</groupId>
         <artifactId>logger</artifactId>
-        <version>3.3.0</version>
+        <version>3.3.1</version>
     </dependency>
 </dependencies>
 ```
@@ -54,8 +54,8 @@ repositories {
 }
 
 dependencies {
-    implementation "dev.lightdream:logger:3.3.0"
-    implementation "com.github.L1ghtDream:logger:3.3.0"
+    implementation "dev.lightdream:logger:3.3.1"
+    implementation "com.github.L1ghtDream:logger:3.3.1"
 }
 ```
 
@@ -67,8 +67,8 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.lightdream:logger:3.3.0")
-    implementation("com.github.L1ghtDream:logger:3.3.0")
+    implementation("dev.lightdream:logger:3.3.1")
+    implementation("com.github.L1ghtDream:logger:3.3.1")
 }
 ```
 
