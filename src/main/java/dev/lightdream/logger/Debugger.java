@@ -4,19 +4,7 @@ package dev.lightdream.logger;
 @SuppressWarnings("unused")
 public class Debugger {
 
-    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    public static boolean checks(Object object) {
-        if (object == null) {
-            info("null");
-            return false;
-        }
-        if (Logger.main == null) {
-            System.out.println(ConsoleColors.RED + "The logger has not been initialized." + ConsoleColors.RESET);
-            System.out.println("Message to be printed: " + object);
-            return false;
-        }
-        return true;
-    }
+    public static Printer printer = new Printer(true);
 
     /**
      * Print a white message
@@ -24,29 +12,16 @@ public class Debugger {
      * @param object The object to print
      */
     public static void info(Object object) {
-        if (!checks(object)) return;
-        Logger.main.log(object.toString(), true);
+        printer.info(object);
     }
 
     /**
-     * @return Whether the debugger is enabled
-     */
-    public static boolean isEnabled() {
-        if (Logger.main == null) {
-            return true;
-        }
-        return Logger.main.debugToConsole();
-    }
-
-    /**
-     * Print a colored message
+     * Print a white message
      *
-     * @param color  The color of the message
      * @param object The object to print
      */
-    public static void color(ConsoleColors color, Object object) {
-        if (!checks(object)) return;
-        info(color + object.toString() + ConsoleColors.RESET);
+    public static void info(Object object, ConsoleColor color) {
+        printer.info(object, color);
     }
 
     /**
@@ -55,7 +30,7 @@ public class Debugger {
      * @param object The object to print
      */
     public static void log(Object object) {
-        info(object);
+        printer.log(object);
     }
 
     /**
@@ -64,7 +39,7 @@ public class Debugger {
      * @param object The object to print
      */
     public static void error(Object object) {
-        color(ConsoleColors.RED, object);
+        printer.error(object);
     }
 
     /**
@@ -73,7 +48,7 @@ public class Debugger {
      * @param object The object to print
      */
     public static void good(Object object) {
-        color(ConsoleColors.GREEN, object);
+        printer.good(object);
     }
 
     /**
@@ -82,15 +57,15 @@ public class Debugger {
      * @param object The object to print
      */
     public static void warn(Object object) {
-        color(ConsoleColors.YELLOW, object);
+        printer.warn(object);
     }
 
     /**
-     * Print a blue message
+     * Initializes the {@link Logger} and {@link Debugger} via the {@link Printer}
      *
-     * @param object The object to print
+     * @param main The main class
      */
-    public static void setting(Object object) {
-        color(ConsoleColors.BLUE, object);
+    public static void init(LoggableMain main) {
+        Printer.init(main);
     }
 }

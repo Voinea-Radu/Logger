@@ -4,21 +4,7 @@ package dev.lightdream.logger;
 @SuppressWarnings("unused")
 public class Logger {
 
-    public static LoggableMain main;
-
-    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    public static boolean checks(Object object) {
-        if (object == null) {
-            info("null");
-            return false;
-        }
-        if (main == null) {
-            System.out.println(ConsoleColors.RED + "The logger has not been initialized." + ConsoleColors.RESET);
-            System.out.println("Message to be printed: " + object);
-            return false;
-        }
-        return true;
-    }
+    public static Printer printer = new Printer(false);
 
     /**
      * Print a white message
@@ -26,19 +12,16 @@ public class Logger {
      * @param object The object to print
      */
     public static void info(Object object) {
-        if (!checks(object)) return;
-        main.log(object.toString(), false);
+        printer.info(object);
     }
 
     /**
-     * Print a colored message
+     * Print a white message
      *
-     * @param color  The color of the message
      * @param object The object to print
      */
-    public static void color(ConsoleColors color, Object object) {
-        if (!checks(object)) return;
-        info(color + object.toString() + ConsoleColors.RESET);
+    public static void info(Object object, ConsoleColor color) {
+        printer.info(object, color);
     }
 
     /**
@@ -47,7 +30,7 @@ public class Logger {
      * @param object The object to print
      */
     public static void log(Object object) {
-        info(object);
+        printer.log(object);
     }
 
     /**
@@ -56,7 +39,7 @@ public class Logger {
      * @param object The object to print
      */
     public static void error(Object object) {
-        color(ConsoleColors.RED, object);
+        printer.error(object);
     }
 
     /**
@@ -65,7 +48,7 @@ public class Logger {
      * @param object The object to print
      */
     public static void good(Object object) {
-        color(ConsoleColors.GREEN, object);
+        printer.good(object);
     }
 
     /**
@@ -74,24 +57,15 @@ public class Logger {
      * @param object The object to print
      */
     public static void warn(Object object) {
-        color(ConsoleColors.YELLOW, object);
+        printer.warn(object);
     }
 
     /**
-     * Print a blue message
-     *
-     * @param object The object to print
-     */
-    public static void setting(Object object) {
-        color(ConsoleColors.BLUE, object);
-    }
-
-    /**
-     * Initializes the {@link Logger} and {@link Debugger}
+     * Initializes the {@link Logger} and {@link Debugger} via the {@link Printer}
      *
      * @param main The main class
      */
     public static void init(LoggableMain main) {
-        Logger.main = main;
+        Printer.init(main);
     }
 }

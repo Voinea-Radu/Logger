@@ -1,7 +1,7 @@
 package dev.lightdream.logger;
 
 @SuppressWarnings("unused")
-public enum ConsoleColors {
+public enum ConsoleColor {
     RESET("\033[0m"),
     BLACK("\033[0;30m"),
     RED("\033[0;31m"),
@@ -62,12 +62,12 @@ public enum ConsoleColors {
 
     private final String code;
 
-    ConsoleColors(String code) {
+    ConsoleColor(String code) {
         this.code = code;
     }
 
     public static String clearString(String log) {
-        for (ConsoleColors value : ConsoleColors.values()) {
+        for (ConsoleColor value : ConsoleColor.values()) {
             log = log.replace(value.toString(), "");
         }
         return log;

@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "dev.lightdream"
-version = "3.2.8"
+version = libs.versions.project.get()
 
 repositories {
     mavenCentral()
@@ -12,18 +12,13 @@ repositories {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_1_9
+    targetCompatibility = JavaVersion.VERSION_1_9
 }
 
 dependencies {
     compileOnly(libs.lombok)
     annotationProcessor(libs.lombok)
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 publishing {

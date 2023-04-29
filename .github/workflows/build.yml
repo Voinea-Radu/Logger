@@ -1,6 +1,5 @@
 # This script requires the following secrets to be set in the repository settings:
 # - SELF_PASSWORD
-#
 
 name: Build
 
@@ -21,26 +20,21 @@ jobs:
     steps:
       # ===== SETUPS ======
 
+
       - name: Setup codebase
         uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4.6.0
 
 
       # ===== VERSION ======
 
+
       - name: Increment version
         run: |
-          wget -O tmp-increment_version.sh https://raw.githubusercontent.com/L1ghtDream/report/cdn/increment_version.sh
-          chmod +x tmp-increment_version.sh
-          ./tmp-increment_version.sh
-
-      - name: Commit version update
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Incremented patch version
-          commit_options: '--no-verify --signoff'
-
-          commit_user_name: Radu Voinea
-          commit_user_email: contact@voinearadu.com
+          wget -O tmp-increment_version.py https://raw.githubusercontent.com/L1ghtDream/report/cdn/increment_version-v2.py
+          python tmp-increment_version.py
 
 
       # ===== JAVA ======
@@ -65,6 +59,7 @@ jobs:
 
       # ===== EXTERNAL SCRIPTS =====
 
+
       - name: External scripts
         if: github.event_name != 'pull_request'
         run: |
@@ -72,9 +67,8 @@ jobs:
           chmod +x tmp-environment_variables.sh
           ./tmp-environment_variables.sh ${{ github.REPOSITORY }}
           
-          wget -O tmp-create_readme_template.sh https://raw.githubusercontent.com/L1ghtDream/report/cdn/create_readme_template.sh
-          chmod +x tmp-create_readme_template.sh
-          ./tmp-create_readme_template.sh
+          wget -O tmp-create_readme.py https://raw.githubusercontent.com/L1ghtDream/report/cdn/create_readme-v2.py
+          python tmp-create_readme.py ${{ github.REPOSITORY_OWNER }} ${{ env.ARTIFACT }} ${{ env.VERSION }}
 
 
       # ===== PUBLISH ======
@@ -98,24 +92,11 @@ jobs:
           files: |
             build/libs/*.jar
 
-
-      # ===== RENDERS ======
-
-
-      - name: "README.md Render"
-        uses: varunsridharan/action-dynamic-readme@1.2
-        if: github.event_name != 'pull_request'
+      - name: Commit any changes made to the repo
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          committer_name: "Radu Voinea"
-          committer_email: "contact@voienaradu.com"
-          commit_message: "Updated README.md versions"
-          files: |
-            tmp/README-template.md=README.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VERSION: ${{ env.VERSION }}
-          ARTIFACT: ${{ env.ARTIFACT }}
-          GROUP: ${{ env.GROUP }}
-          GITHUB_USERNAME: ${{ github.REPOSITORY_OWNER }}
-          REPOSITORY: ${{ github.REPOSITORY }}
-          REPOSITORY_NAME: ${{ env.REPOSITORY_NAME }}
+          commit_message: Incremented patch version
+          commit_options: '--no-verify --signoff'
+
+          commit_user_name: Radu Voinea
+          commit_user_email: contact@voinearadu.com
