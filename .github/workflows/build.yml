@@ -68,7 +68,7 @@ jobs:
           ./tmp-environment_variables.sh ${{ github.REPOSITORY }}
           
           wget -O tmp-create_readme.py https://raw.githubusercontent.com/L1ghtDream/report/cdn/create_readme-v2.py
-          python tmp-create_readme.py ${{ env.REPOSITORY_NAME }} ${{ env.ARTIFACT }} ${{ env.VERSION }}
+          python tmp-create_readme.py ${{ github.REPOSITORY_NAME }} ${{ github.ARTIFACT }} ${{ github.VERSION }}
 
 
       # ===== PUBLISH ======
