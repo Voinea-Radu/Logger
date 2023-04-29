@@ -1,8 +1,8 @@
 
-# test1
+# Logger
 
 ![Build](../../actions/workflows/build.yml/badge.svg)
-![Version](https://img.shields.io/badge/Version-test3-red.svg)
+![Version](https://img.shields.io/badge/Version-3.3.0-red.svg)
 
 # Table Of Contents
 1. [Description](#description)
@@ -12,7 +12,6 @@
 ## Description
 A simple logger library used by many others proprietary libs and projects. This library allows you to enable and disable
 logging or debugging to console and files as well as include or not timestamps.
-# HERE SOMETHING ELSE
 
 ## How to add to your project
 
@@ -36,13 +35,13 @@ The artifact can be found at the repository https://repo.lightdream.dev or https
 <dependencies>
     <dependency>
         <groupId>dev.lightdream</groupId>
-        <artifactId>test2</artifactId>
-        <version>test3</version>
+        <artifactId>logger</artifactId>
+        <version>3.3.0</version>
     </dependency>
     <dependency>
         <groupId>com.github.L1ghtDream</groupId>
-        <artifactId>test2</artifactId>
-        <version>test3</version>
+        <artifactId>logger</artifactId>
+        <version>3.3.0</version>
     </dependency>
 </dependencies>
 ```
@@ -55,8 +54,8 @@ repositories {
 }
 
 dependencies {
-    implementation "dev.lightdream:test2:test3"
-    implementation "com.github.L1ghtDream:test2:test3"
+    implementation "dev.lightdream:logger:3.3.0"
+    implementation "com.github.L1ghtDream:logger:3.3.0"
 }
 ```
 
@@ -68,8 +67,8 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.lightdream:test2:test3")
-    implementation("com.github.L1ghtDream:test2:test3")
+    implementation("dev.lightdream:logger:3.3.0")
+    implementation("com.github.L1ghtDream:logger:3.3.0")
 }
 ```
 
