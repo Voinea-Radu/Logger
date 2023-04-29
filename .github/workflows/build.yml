@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # ===== SETUPS ======
+      # ==================== SETUPS ====================
 
 
       - name: Setup codebase
@@ -26,19 +26,6 @@ jobs:
 
       - name: Setup Python
         uses: actions/setup-python@v4.6.0
-
-
-      # ===== VERSION ======
-
-
-      - name: Increment version
-        run: |
-          wget -O tmp-increment_version.py https://raw.githubusercontent.com/L1ghtDream/report/cdn/increment_version-v2.py
-          python tmp-increment_version.py
-
-
-      # ===== JAVA ======
-
 
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -49,30 +36,38 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
+      # ==================== VERSION =====================
 
-      # ===== BUILD ======
+
+      - name: External scripts - Increment version
+        run: |
+          wget -O tmp-increment_version.py https://raw.githubusercontent.com/L1ghtDream/report/cdn/increment_version-v2.py
+          python tmp-increment_version.py
+
+
+      # ==================== BUILD ====================
 
 
       - name: Execute Gradle build
         run: gradle build
 
 
-      # ===== EXTERNAL SCRIPTS =====
+      # ==================== EXTERNAL SCRIPTS ====================
 
 
-      - name: External scripts
+      - name: External scripts - Environment Variables
         run: |
           wget -O tmp-environment_variables.sh https://raw.githubusercontent.com/L1ghtDream/report/cdn/environment_variables.sh
           chmod +x tmp-environment_variables.sh
           ./tmp-environment_variables.sh ${{ github.REPOSITORY }}
 
-      - name: External scripts
+      - name: External scripts - Readme
         run: |
           wget -O tmp-create_readme.py https://raw.githubusercontent.com/L1ghtDream/report/cdn/create_readme-v2.py
           python tmp-create_readme.py ${{ env.REPOSITORY_NAME }} ${{ env.ARTIFACT }} ${{ env.VERSION }}
 
 
-      # ===== PUBLISH ======
+      # ==================== PUBLISH ====================
 
 
       - name: Uploading artifacts
