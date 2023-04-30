@@ -4,7 +4,7 @@ package dev.lightdream.logger;
 @SuppressWarnings("unused")
 public class Debugger {
 
-    public static Printer printer = new Printer(true);
+    private static final Printer printer = new Printer(true);
 
     /**
      * Print a white message
