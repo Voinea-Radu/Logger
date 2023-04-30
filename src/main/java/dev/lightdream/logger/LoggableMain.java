@@ -65,11 +65,11 @@ public interface LoggableMain {
         }
 
         if (logToFile() && !debug) {
-            FileUtils.writeToLFile(ConsoleColor.clearString(log), logFilesFolder());
+            FileUtils.writeToFile(ConsoleColor.clearString(log), logFilesFolder());
         }
 
         if (debugToFile() && debug) {
-            FileUtils.writeToLFile(ConsoleColor.clearString(log), debugFilesFolder());
+            FileUtils.writeToFile(ConsoleColor.clearString(log), debugFilesFolder());
         }
 
         if (!debug) {

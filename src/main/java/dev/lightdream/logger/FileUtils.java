@@ -10,7 +10,10 @@ import java.time.format.DateTimeFormatter;
 public class FileUtils {
 
     @SneakyThrows
-    public static void writeToLFile(String log, String folder) {
+    public static void writeToFile(String log, String folder) {
+        if(!folder.startsWith("/")){
+            folder = "/" + folder;
+        }
         File dir = new File(System.getProperty("user.dir") + folder);
         // noinspection ResultOfMethodCallIgnored
         dir.mkdirs();
