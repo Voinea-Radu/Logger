@@ -15,6 +15,7 @@ public class ExampleMain implements LoggableMain {
 ```
 
 ### How to use the Logger class
+
 ```java
 public class UserLogger {
 
@@ -28,9 +29,10 @@ public class UserLogger {
 }
 ```
 
-
 ### How to use the Debugger class
+
 This class can only be used if the ExampleMain#debugToConsole is returning true
+
 ```java
 public class UseDebugger {
 
