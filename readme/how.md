@@ -16,7 +16,7 @@ public class ExampleMain implements LoggableMain {
 
 ### How to use the Logger class
 ```java
-public class LoggerUser {
+public class UserLogger {
 
     public void log() {
         Logger.log("This is a log message");
@@ -32,7 +32,7 @@ public class LoggerUser {
 ### How to use the Debugger class
 This class can only be used if the ExampleMain#debugToConsole is returning true
 ```java
-public class LoggerUser {
+public class UseDebugger {
 
     public void foo() {
         Debugger.log("This is a debug message");
