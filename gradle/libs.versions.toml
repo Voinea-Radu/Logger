@@ -3,3 +3,5 @@ project = "3.3.9"
 
 [libraries]
 lombok = { module = "org.projectlombok:lombok", version = "1.18.26" }
+junit_jupiter = { module = "org.junit.jupiter:junit-jupiter ", version="5.9.3" }
+junit_bom = { module = "org.junit:junit-bom", version="5.9.3" }
