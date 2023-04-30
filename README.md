@@ -1,7 +1,7 @@
 # Logger
 
 ![Build](../../actions/workflows/build.yml/badge.svg)
-![Version](https://img.shields.io/badge/Version-3.3.4-red.svg)
+![Version](https://img.shields.io/badge/Version-3.3.5-red.svg)
 
 # Table Of Contents
 
@@ -41,12 +41,12 @@ com.github.L1ghtDream instead of dev.lightdream)
     <dependency>
         <groupId>dev.lightdream</groupId>
         <artifactId>logger</artifactId>
-        <version>3.3.4</version>
+        <version>3.3.5</version>
     </dependency>
     <dependency>
         <groupId>com.github.L1ghtDream</groupId>
         <artifactId>logger</artifactId>
-        <version>3.3.4</version>
+        <version>3.3.5</version>
     </dependency>
 </dependencies>
 ```
@@ -60,8 +60,8 @@ repositories {
 }
 
 dependencies {
-    implementation "dev.lightdream:logger:3.3.4"
-    implementation "com.github.L1ghtDream:logger:3.3.4"
+    implementation "dev.lightdream:logger:3.3.5"
+    implementation "com.github.L1ghtDream:logger:3.3.5"
 }
 ```
 
@@ -74,8 +74,8 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.lightdream:logger:3.3.4")
-    implementation("com.github.L1ghtDream:logger:3.3.4")
+    implementation("dev.lightdream:logger:3.3.5")
+    implementation("com.github.L1ghtDream:logger:3.3.5")
 }
 ```
 
@@ -84,5 +84,50 @@ using https://archive-repo.lightdream.dev
 
 ## How to use
 
-A simple logger library used by many others proprietary libs and projects. This library allows you to enable and disable
-logging or debugging to console and files as well as include or not timestamps.
+### The main function
+
+All the methods have JavaDocs for what each of them do.
+More methods that can customize the behaviour of the Logger and Debugger by overriding methods of LoggableMain
+
+```java
+public class ExampleMain implements LoggableMain {
+
+    @Override
+    public boolean debugToConsole() {
+        return true;
+    }
+
+}
+```
+
+### How to use the Logger class
+
+```java
+public class UserLogger {
+
+    public void log() {
+        Logger.log("This is a log message");
+        Logger.info("This is a colored message", ConsoleColor.CYAN);
+        Logger.good("This is a success message");
+        Logger.warn("This is a warning message");
+        Logger.error("This is an error message");
+    }
+}
+```
+
+### How to use the Debugger class
+
+This class can only be used if the ExampleMain#debugToConsole is returning true
+
+```java
+public class UseDebugger {
+
+    public void foo() {
+        Debugger.log("This is a debug message");
+        Debugger.info("This is a colored debug message", ConsoleColor.CYAN);
+        Debugger.good("This is a success debug message");
+        Debugger.warn("This is a warning debug message");
+        Debugger.error("This is an error debug message");
+    }
+}
+```
