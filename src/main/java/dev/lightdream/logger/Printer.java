@@ -7,12 +7,12 @@ public class Printer {
     private static @Getter LoggableMain main;
     private final boolean debugger;
 
-    public static void init(LoggableMain main) {
-        Printer.main = main;
-    }
-
     public Printer(boolean debugger) {
         this.debugger = debugger;
+    }
+
+    public static void init(LoggableMain main) {
+        Printer.main = main;
     }
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
