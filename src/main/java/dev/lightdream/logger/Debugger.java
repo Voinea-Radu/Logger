@@ -6,6 +6,13 @@ public class Debugger {
 
     private static final Printer printer = new Printer(true);
 
+    public static boolean isEnabled() {
+        if (Printer.getMain() == null) {
+            return true;
+        }
+        return Printer.getMain().debugToConsole();
+    }
+
     /**
      * Print a white message
      *
