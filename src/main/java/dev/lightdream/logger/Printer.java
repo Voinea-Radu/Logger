@@ -12,9 +12,12 @@ import java.time.format.DateTimeFormatter;
 
 public class Printer {
 
-    @Getter
-    @NotNull
-    private static Printer.Settings settings = new Settings();
+    private static @Getter Printer.Settings settings;
+
+    static {
+        init(new Settings());
+    }
+
     private final boolean debugger;
 
     public Printer(boolean debugger) {
