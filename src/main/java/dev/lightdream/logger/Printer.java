@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -17,12 +19,12 @@ public class Printer {
         this.debugger = debugger;
     }
 
-    public static void init(Printer.Settings settings) {
+    public static void init(@NotNull Printer.Settings settings) {
         Printer.settings = settings;
     }
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    public boolean checks(Object object) {
+    public boolean checks(@Nullable Object object) {
         if (object == null) {
             info("null");
             return false;
@@ -40,7 +42,7 @@ public class Printer {
      *
      * @param object The object to print
      */
-    public void info(Object object) {
+    public void info(@Nullable Object object) {
         info(object, ConsoleColor.WHITE);
     }
 
@@ -49,9 +51,10 @@ public class Printer {
      *
      * @param object The object to print
      */
-    public void info(Object object, ConsoleColor color) {
+    public void info(@Nullable Object object, @NotNull ConsoleColor color) {
         if (!checks(object)) return;
-        log(color.toString() + object.toString() + ConsoleColor.RESET, debugger);
+        //noinspection DataFlowIssue
+        log(color + object.toString() + ConsoleColor.RESET, debugger);
     }
 
     /**
@@ -59,7 +62,7 @@ public class Printer {
      *
      * @param object The object to print
      */
-    public void log(Object object) {
+    public void log(@Nullable Object object) {
         info(object);
     }
 
@@ -68,7 +71,7 @@ public class Printer {
      *
      * @param object The object to print
      */
-    public void error(Object object) {
+    public void error(@Nullable Object object) {
         info(object, ConsoleColor.RED);
     }
 
@@ -77,7 +80,7 @@ public class Printer {
      *
      * @param object The object to print
      */
-    public void good(Object object) {
+    public void good(@Nullable Object object) {
         info(object, ConsoleColor.GREEN);
     }
 
@@ -86,11 +89,11 @@ public class Printer {
      *
      * @param object The object to print
      */
-    public void warn(Object object) {
+    public void warn(@Nullable Object object) {
         info(object, ConsoleColor.YELLOW);
     }
 
-    private void log(String log, boolean debug) {
+    private void log(@NotNull String log, boolean debug) {
         if (settings.logTime()) {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
             log = "[" + dtf.format(LocalDateTime.now()) + "] " + log;
@@ -114,7 +117,7 @@ public class Printer {
         }
     }
 
-    private void logToConsole(String log) {
+    private void logToConsole(@NotNull String log) {
         System.out.println(log);
     }
 
@@ -124,8 +127,8 @@ public class Printer {
     @NoArgsConstructor
     public static class Settings {
 
-        private String logFilesFolder = "/logs/";
-        private String debugFilesFolder = "/debug/";
+        private @NotNull String logFilesFolder = "/logs/";
+        private @NotNull String debugFilesFolder = "/debug/";
         private boolean logTime = false;
         private boolean logToFile = false;
         private boolean debugToFile = false;

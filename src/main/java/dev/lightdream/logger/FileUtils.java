@@ -1,6 +1,7 @@
 package dev.lightdream.logger;
 
 import lombok.SneakyThrows;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -10,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 public class FileUtils {
 
     @SneakyThrows
-    public static void writeToFile(String log, String folder) {
+    public static void writeToFile(@NotNull String log, @NotNull String folder) {
         if(!folder.startsWith("/")){
             folder = "/" + folder;
         }

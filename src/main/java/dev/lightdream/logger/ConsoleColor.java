@@ -1,5 +1,7 @@
 package dev.lightdream.logger;
 
+import org.jetbrains.annotations.NotNull;
+
 @SuppressWarnings("unused")
 public enum ConsoleColor {
     RESET("\033[0m"),
@@ -60,13 +62,13 @@ public enum ConsoleColor {
     CYAN_BACKGROUND_BRIGHT("\033[0;106m"),
     WHITE_BACKGROUND_BRIGHT("\033[0;107m");
 
-    private final String code;
+    private final @NotNull String code;
 
-    ConsoleColor(String code) {
+    ConsoleColor(@NotNull String code) {
         this.code = code;
     }
 
-    public static String clearString(String log) {
+    public static @NotNull String clearString(@NotNull String log) {
         for (ConsoleColor value : ConsoleColor.values()) {
             log = log.replace(value.toString(), "");
         }
@@ -74,7 +76,7 @@ public enum ConsoleColor {
     }
 
     @Override
-    public String toString() {
+    public @NotNull String toString() {
         return code;
     }
 }

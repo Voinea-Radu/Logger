@@ -1,6 +1,9 @@
 package dev.lightdream.logger;
 
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 @SuppressWarnings("unused")
 public class Logger {
 
@@ -11,7 +14,7 @@ public class Logger {
      *
      * @param object The object to print
      */
-    public static void info(Object object) {
+    public static void info(@Nullable Object object) {
         printer.info(object);
     }
 
@@ -20,7 +23,7 @@ public class Logger {
      *
      * @param object The object to print
      */
-    public static void info(Object object, ConsoleColor color) {
+    public static void info(@Nullable Object object, @NotNull ConsoleColor color) {
         printer.info(object, color);
     }
 
@@ -29,7 +32,7 @@ public class Logger {
      *
      * @param object The object to print
      */
-    public static void log(Object object) {
+    public static void log(@Nullable Object object) {
         printer.log(object);
     }
 
@@ -38,7 +41,7 @@ public class Logger {
      *
      * @param object The object to print
      */
-    public static void error(Object object) {
+    public static void error(@Nullable Object object) {
         printer.error(object);
     }
 
@@ -47,7 +50,7 @@ public class Logger {
      *
      * @param object The object to print
      */
-    public static void good(Object object) {
+    public static void good(@Nullable Object object) {
         printer.good(object);
     }
 
@@ -56,7 +59,7 @@ public class Logger {
      *
      * @param object The object to print
      */
-    public static void warn(Object object) {
+    public static void warn(@Nullable Object object) {
         printer.warn(object);
     }
 
@@ -65,7 +68,7 @@ public class Logger {
      *
      * @param settings The settings
      */
-    public static void init(Printer.Settings settings) {
+    public static void init(@NotNull Printer.Settings settings) {
         Printer.init(settings);
     }
 }
