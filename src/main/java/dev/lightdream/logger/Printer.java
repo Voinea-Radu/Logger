@@ -2,17 +2,20 @@ package dev.lightdream.logger;
 
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Printer {
 
-    private static @Getter LoggableMain main;
+    private static @Getter PrinterSettings settings;
     private final boolean debugger;
 
     public Printer(boolean debugger) {
         this.debugger = debugger;
     }
 
-    public static void init(LoggableMain main) {
-        Printer.main = main;
+    public static void init(PrinterSettings settings) {
+        Printer.settings = settings;
     }
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
@@ -21,7 +24,7 @@ public class Printer {
             info("null");
             return false;
         }
-        if (main == null) {
+        if (settings == null) {
             System.out.println(ConsoleColor.RED + "The logger has not been initialized." + ConsoleColor.RESET);
             System.out.println("[DEBUG] " + object);
             return false;
@@ -45,7 +48,7 @@ public class Printer {
      */
     public void info(Object object, ConsoleColor color) {
         if (!checks(object)) return;
-        main.log(color.toString() + object.toString() + ConsoleColor.RESET, debugger);
+        log(color.toString() + object.toString() + ConsoleColor.RESET, debugger);
     }
 
     /**
@@ -82,5 +85,33 @@ public class Printer {
      */
     public void warn(Object object) {
         info(object, ConsoleColor.YELLOW);
+    }
+
+    private void log(String log, boolean debug) {
+        if (settings.logTime()) {
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+            log = "[" + dtf.format(LocalDateTime.now()) + "] " + log;
+        }
+
+        if (settings.logToFile() && !debug) {
+            FileUtils.writeToFile(ConsoleColor.clearString(log), settings.logFilesFolder());
+        }
+
+        if (settings.debugToFile() && debug) {
+            FileUtils.writeToFile(ConsoleColor.clearString(log), settings.debugFilesFolder());
+        }
+
+        if (!debug) {
+            logToConsole(log);
+            return;
+        }
+
+        if (settings.debugToConsole()) {
+            logToConsole(log);
+        }
+    }
+
+    private void logToConsole(String log) {
+        System.out.println(log);
     }
 }

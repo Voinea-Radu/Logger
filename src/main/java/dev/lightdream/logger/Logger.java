@@ -63,9 +63,9 @@ public class Logger {
     /**
      * Initializes the {@link Logger} and {@link Debugger} via the {@link Printer}
      *
-     * @param main The main class
+     * @param settings The settings
      */
-    public static void init(LoggableMain main) {
-        Printer.init(main);
+    public static void init(PrinterSettings settings) {
+        Printer.init(settings);
     }
 }

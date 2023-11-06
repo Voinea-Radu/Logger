@@ -7,10 +7,10 @@ public class Debugger {
     private static final Printer printer = new Printer(true);
 
     public static boolean isEnabled() {
-        if (Printer.getMain() == null) {
+        if (Printer.getSettings() == null) {
             return true;
         }
-        return Printer.getMain().debugToConsole();
+        return Printer.getSettings().debugToConsole();
     }
 
     /**
@@ -70,9 +70,9 @@ public class Debugger {
     /**
      * Initializes the {@link Logger} and {@link Debugger} via the {@link Printer}
      *
-     * @param main The main class
+     * @param settings The main class
      */
-    public static void init(LoggableMain main) {
-        Printer.init(main);
+    public static void init(PrinterSettings settings) {
+        Printer.init(settings);
     }
 }
