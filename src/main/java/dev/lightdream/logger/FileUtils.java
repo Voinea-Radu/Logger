@@ -12,7 +12,7 @@ public class FileUtils {
 
     @SneakyThrows
     public static void writeToFile(@NotNull String log, @NotNull String folder) {
-        if(!folder.startsWith("/")){
+        if (!folder.startsWith("/")) {
             folder = "/" + folder;
         }
         File dir = new File(System.getProperty("user.dir") + folder);
