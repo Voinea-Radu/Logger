@@ -1,7 +1,7 @@
 # Logger
 
 ![Build](../../actions/workflows/build.yml/badge.svg)
-![Version](https://img.shields.io/badge/Version-4.0.4-red.svg)
+![Version](https://img.shields.io/badge/Version-4.0.5-red.svg)
 
 # Table Of Contents
 
@@ -41,12 +41,12 @@ com.github.L1ghtDream instead of dev.lightdream)
     <dependency>
         <groupId>dev.lightdream</groupId>
         <artifactId>logger</artifactId>
-        <version>4.0.4</version>
+        <version>4.0.5</version>
     </dependency>
     <dependency>
         <groupId>com.github.L1ghtDream</groupId>
         <artifactId>logger</artifactId>
-        <version>4.0.4</version>
+        <version>4.0.5</version>
     </dependency>
 </dependencies>
 ```
@@ -60,8 +60,8 @@ repositories {
 }
 
 dependencies {
-    implementation "dev.lightdream:logger:4.0.4"
-    implementation "com.github.L1ghtDream:logger:4.0.4"
+    implementation "dev.lightdream:logger:4.0.5"
+    implementation "com.github.L1ghtDream:logger:4.0.5"
 }
 ```
 
@@ -74,8 +74,8 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.lightdream:logger:4.0.4")
-    implementation("com.github.L1ghtDream:logger:4.0.4")
+    implementation("dev.lightdream:logger:4.0.5")
+    implementation("com.github.L1ghtDream:logger:4.0.5")
 }
 ```
 
