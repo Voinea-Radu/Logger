@@ -12,7 +12,9 @@ import java.time.format.DateTimeFormatter;
 
 public class Printer {
 
-    private static @Getter Printer.Settings settings;
+    @Getter
+    @NotNull
+    private static Printer.Settings settings = new Settings();
     private final boolean debugger;
 
     public Printer(boolean debugger) {
@@ -27,11 +29,6 @@ public class Printer {
     public boolean checks(@Nullable Object object) {
         if (object == null) {
             info("null");
-            return false;
-        }
-        if (settings == null) {
-            System.out.println(ConsoleColor.RED + "The logger has not been initialized." + ConsoleColor.RESET);
-            System.out.println("[DEBUG] " + object);
             return false;
         }
         return true;
