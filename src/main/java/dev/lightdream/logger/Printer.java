@@ -1,20 +1,23 @@
 package dev.lightdream.logger;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Printer {
 
-    private static @Getter PrinterSettings settings;
+    private static @Getter Printer.Settings settings;
     private final boolean debugger;
 
     public Printer(boolean debugger) {
         this.debugger = debugger;
     }
 
-    public static void init(PrinterSettings settings) {
+    public static void init(Printer.Settings settings) {
         Printer.settings = settings;
     }
 
@@ -113,5 +116,24 @@ public class Printer {
 
     private void logToConsole(String log) {
         System.out.println(log);
+    }
+
+    @Getter
+    @Setter
+    @Accessors(chain = true, fluent = true)
+    @NoArgsConstructor
+    public static class Settings {
+
+        private String logFilesFolder = "/logs/";
+        private String debugFilesFolder = "/debug/";
+        private boolean logTime = false;
+        private boolean logToFile = false;
+        private boolean debugToFile = false;
+        private boolean debugToConsole = false;
+
+        public void build() {
+            Printer.init(this);
+        }
+
     }
 }

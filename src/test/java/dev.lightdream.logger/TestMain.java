@@ -3,7 +3,7 @@ package dev.lightdream.logger;
 public class TestMain {
 
     public TestMain() {
-        PrinterSettings settings = new PrinterSettings()
+        Printer.Settings settings = new Printer.Settings()
                 .debugToConsole(true)
                 .logFilesFolder("tmp-logs")
                 .debugFilesFolder("tmp-debugs")

@@ -72,7 +72,7 @@ public class Debugger {
      *
      * @param settings The main class
      */
-    public static void init(PrinterSettings settings) {
+    public static void init(Printer.Settings settings) {
         Printer.init(settings);
     }
 }

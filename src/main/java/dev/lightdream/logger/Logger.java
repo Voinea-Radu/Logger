@@ -65,7 +65,7 @@ public class Logger {
      *
      * @param settings The settings
      */
-    public static void init(PrinterSettings settings) {
+    public static void init(Printer.Settings settings) {
         Printer.init(settings);
     }
 }
