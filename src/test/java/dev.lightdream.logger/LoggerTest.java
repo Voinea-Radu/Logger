@@ -18,7 +18,14 @@ public class LoggerTest {
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @BeforeAll
     public static void init() {
-        new TestMain();
+        Printer.builder()
+                .logFilesFolder("tmp-logs")
+                .debugFilesFolder("tmp-debugs")
+                .debugToConsole(true)
+                .logToFile(true)
+                .debugToFile(true)
+                .build();
+
         File file1 = getLogFile();
         File file2 = getDebugFile();
 

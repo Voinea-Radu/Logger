@@ -7,7 +7,12 @@ import org.jetbrains.annotations.Nullable;
 @SuppressWarnings("unused")
 public class Logger {
 
-    private static final Printer printer = new Printer(false);
+    private static Printer printer;
+
+    static {
+        // Load the printer class to initialize its static variables
+        Printer.builder();
+    }
 
     /**
      * Print a white message
@@ -63,12 +68,7 @@ public class Logger {
         printer.warn(object);
     }
 
-    /**
-     * Initializes the {@link Logger} and {@link Debugger} via the {@link Printer}
-     *
-     * @param settings The settings
-     */
-    public static void init(@NotNull Printer.Settings settings) {
-        Printer.init(settings);
+    public static void init(@NotNull Printer printer) {
+        Logger.printer = printer;
     }
 }

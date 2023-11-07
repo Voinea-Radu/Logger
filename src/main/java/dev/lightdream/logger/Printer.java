@@ -1,7 +1,7 @@
 package dev.lightdream.logger;
 
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
@@ -10,22 +10,35 @@ import org.jetbrains.annotations.Nullable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+@Builder(builderClassName = "_Builder", toBuilder = true)
+@Getter
+@Setter
+@Accessors(chain = true, fluent = true)
 public class Printer {
 
-    private static @Getter Printer.Settings settings;
-
     static {
-        init(new Settings());
+        builder().build();
     }
 
-    private final boolean debugger;
+    @lombok.Builder.Default
+    private boolean debugger = false;
+    @lombok.Builder.Default
+    @NotNull
+    private String logFilesFolder = "/logs/";
+    @lombok.Builder.Default
+    @NotNull
+    private String debugFilesFolder = "/debug/";
+    @lombok.Builder.Default
+    private boolean logTime = false;
+    @lombok.Builder.Default
+    private boolean logToFile = false;
+    @lombok.Builder.Default
+    private boolean debugToFile = false;
+    @lombok.Builder.Default
+    private boolean debugToConsole = false;
 
-    public Printer(boolean debugger) {
-        this.debugger = debugger;
-    }
-
-    public static void init(@NotNull Printer.Settings settings) {
-        Printer.settings = settings;
+    public static Builder builder() {
+        return new Builder();
     }
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
@@ -94,17 +107,17 @@ public class Printer {
     }
 
     private void log(@NotNull String log, boolean debug) {
-        if (settings.logTime()) {
+        if (logTime()) {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
             log = "[" + dtf.format(LocalDateTime.now()) + "] " + log;
         }
 
-        if (settings.logToFile() && !debug) {
-            FileUtils.writeToFile(ConsoleColor.clearString(log), settings.logFilesFolder());
+        if (logToFile() && !debug) {
+            FileUtils.writeToFile(ConsoleColor.clearString(log), logFilesFolder());
         }
 
-        if (settings.debugToFile() && debug) {
-            FileUtils.writeToFile(ConsoleColor.clearString(log), settings.debugFilesFolder());
+        if (debugToFile() && debug) {
+            FileUtils.writeToFile(ConsoleColor.clearString(log), debugFilesFolder());
         }
 
         if (!debug) {
@@ -112,7 +125,7 @@ public class Printer {
             return;
         }
 
-        if (settings.debugToConsole()) {
+        if (debugToConsole()) {
             logToConsole(log);
         }
     }
@@ -121,22 +134,20 @@ public class Printer {
         System.out.println(log);
     }
 
-    @Getter
-    @Setter
-    @Accessors(chain = true, fluent = true)
-    @NoArgsConstructor
-    public static class Settings {
+    public static class Builder extends _Builder {
+        @Override
+        public Printer build() {
+            // We need to call it multiple times to get multiple instances
+            Printer output = super.build();
+            this.debugger(false);
+            Printer logPrinter = super.build();
+            this.debugger(true);
+            Printer debugPrinter = super.build();
 
-        private @NotNull String logFilesFolder = "/logs/";
-        private @NotNull String debugFilesFolder = "/debug/";
-        private boolean logTime = false;
-        private boolean logToFile = false;
-        private boolean debugToFile = false;
-        private boolean debugToConsole = false;
+            Logger.init(logPrinter);
+            Debugger.init(debugPrinter);
 
-        public void build() {
-            Printer.init(this);
+            return output;
         }
-
     }
 }

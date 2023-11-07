@@ -7,13 +7,15 @@ import org.jetbrains.annotations.Nullable;
 @SuppressWarnings("unused")
 public class Debugger {
 
-    private static final Printer printer = new Printer(true);
+    private static Printer printer;
+
+    static {
+        // Load the printer class to initialize its static variables
+        Printer.builder();
+    }
 
     public static boolean isEnabled() {
-        if (Printer.getSettings() == null) {
-            return true;
-        }
-        return Printer.getSettings().debugToConsole();
+        return printer.debugToConsole();
     }
 
     /**
@@ -70,12 +72,7 @@ public class Debugger {
         printer.warn(object);
     }
 
-    /**
-     * Initializes the {@link Logger} and {@link Debugger} via the {@link Printer}
-     *
-     * @param settings The main class
-     */
-    public static void init(@NotNull Printer.Settings settings) {
-        Printer.init(settings);
+    public static void init(@NotNull Printer printer) {
+        Debugger.printer = printer;
     }
 }
