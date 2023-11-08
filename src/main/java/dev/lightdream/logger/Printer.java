@@ -29,7 +29,7 @@ public class Printer {
     private @Default boolean debugToConsole = false;
     private @Default boolean debugger = false;
 
-    @lombok.Builder(builderClassName = "_Builder", toBuilder = true)
+    @lombok.Builder(builderClassName = "_Builder")
     private Printer(@NotNull String logFilesFolder, @NotNull String debugFilesFolder, boolean logTime,
                     boolean logToFile, boolean debugToFile, boolean debugToConsole, boolean debugger) {
         this.debugger = debugger;
