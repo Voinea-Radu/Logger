@@ -1,8 +1,6 @@
 package dev.lightdream.logger;
 
-import lombok.Builder.Default;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -11,7 +9,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Getter
-@Setter
 @Accessors(chain = true, fluent = true)
 public class Printer {
 
@@ -19,15 +16,13 @@ public class Printer {
         builder().build();
     }
 
-    @NotNull
-    private @Default String logFilesFolder = "/logs/";
-    @NotNull
-    private @Default String debugFilesFolder = "/debug/";
-    private @Default boolean logTime = false;
-    private @Default boolean logToFile = false;
-    private @Default boolean debugToFile = false;
-    private @Default boolean debugToConsole = false;
-    private @Default boolean debugger = false;
+    private final @NotNull String logFilesFolder;
+    private final @NotNull String debugFilesFolder;
+    private final boolean logTime;
+    private final boolean logToFile;
+    private final boolean debugToFile;
+    private final boolean debugToConsole;
+    private final boolean debugger;
 
     @lombok.Builder(builderClassName = "_Builder")
     private Printer(@NotNull String logFilesFolder, @NotNull String debugFilesFolder, boolean logTime,
@@ -42,7 +37,13 @@ public class Printer {
     }
 
     public static Builder builder() {
-        return new Builder();
+        return (Builder) new Builder()
+                .logFilesFolder("/logs/")
+                .debugFilesFolder("/debug/")
+                .logTime(false)
+                .logToFile(false)
+                .debugToFile(false)
+                .debugToConsole(false);
     }
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
